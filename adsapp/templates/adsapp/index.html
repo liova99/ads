@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'adsapp/style.css' %}">
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+</head>
+<body>
+<h1>adds</h1>
+<ul>
+    {% for article in object_list %}
+
+    <li><a href="{% url 'adsapp:detail' article.pk %} "  > {{article}}</a></li>
+    {%endfor%}
+</ul>
+
+<a href="{% url 'adsapp:register' %}">register</a><br>
+<a href="{% url 'adsapp:add_new' %}">Add Item</a><br>
+<a href="{% url 'adsapp:about' %}">About</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}</title>
+</head>
+<body>
+{# we take img object and refer to it's url #}
+<img src="{{ adds.photo.url}}" style="width:200px;">
+<br><br><br><br>
+{{adds.article_name}}<br>
+{{adds.price}}$<br>
+{{adds.category}}<br>
+{{adds.details}}<br>
+
+<br><br>
+
+
+<a href="{% url 'adsapp:update_item' adds.pk %} ">Update</a>
+
+{# Delete must be only post, otherwise we risk haking #}
+<form action="{% url 'adsapp:delete_item' adds.pk %}" method="post">
+    {% csrf_token%}
+    <button style="submit"> Delete</button>
+</form>
+<br><br>
+<a href="{% url 'adsapp:index' %}">Index</a>
+
+</body>
+</html>

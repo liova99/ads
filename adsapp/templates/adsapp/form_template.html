@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}</title>
+</head>
+<body>
+{% for field in form %}
+    <div class="form_group">
+        <div class="error">
+            <span class="error_txt" style="color:red">{{ field.error }}</span>
+        </div>
+        <label class="lable">{{ field.label_tag }}</label>
+        <div class="imput_area">{{ field }}</div>
+
+    </div>
+{% endfor %}
+</body>
+</html>
